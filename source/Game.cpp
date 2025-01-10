@@ -12,9 +12,5 @@ Game::~Game()
 
 void Game::Run()
 {
-    const char *ptr = "bruh";
-    ptr[0] = '0';
-    ptr = "str";
-
     InitWindow(config::windowWidth, config::windowHeight, config::windowTitle);
 }
