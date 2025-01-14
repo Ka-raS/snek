@@ -1,5 +1,7 @@
 #pragma once
 
+#include "raylib.h"
+
 class Game
 {
 public:
@@ -8,4 +10,8 @@ public:
     void Run();
 
 private:
+    void Update();
+
+private:
+    Image m_windowIcon;
 };
