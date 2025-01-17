@@ -1,17 +1,35 @@
 #pragma once
 
+#include "Snake.hpp"
+#include "Apple.hpp"
+#include "Common.hpp"
+
 #include "raylib.h"
 
-class Game
+namespace snek
 {
-public:
-    Game();
-    ~Game();
-    void Run();
+    class Game
+    {
+    public:
+        Game();
+        ~Game();
+        void Run();
 
-private:
-    void Update();
+    private:
+        void update();
+        void render() const;
 
-private:
-    Image m_windowIcon;
-};
+        void handleInput();
+        void handleCollision();
+        static bool hasEnoughTimePassed();
+
+    private:
+        Image m_windowIcon;
+        Sound m_eatingSound;
+
+        Snake m_snake;
+        Apple m_apple;
+        Direction m_nextSnakeDirection;
+    };
+
+} // namespace snek

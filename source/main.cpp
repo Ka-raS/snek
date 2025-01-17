@@ -2,6 +2,6 @@
 
 int main()
 {
-    Game snek;
-    snek.Run();
+    snek::Game game;
+    game.Run();
 }
