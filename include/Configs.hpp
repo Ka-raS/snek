@@ -6,11 +6,11 @@
 namespace snek::configs
 {
     constexpr int fpsTarget = 60;
-    constexpr int windowWidth = 900;
-    constexpr int windowHeight = 600;
-    constexpr int mapWidth = 45;
-    constexpr int mapHeight = 30;
-    constexpr int scale = 20;
+    constexpr int windowWidth = 800;
+    constexpr int windowHeight = windowWidth;
+    constexpr int mapWidth = 20;
+    constexpr int mapHeight = mapWidth;
+    constexpr int tileSize = windowWidth / mapWidth;
 
     constexpr const char *windowTitle = "snek";
     constexpr const char *windowIconPath = "../resources/icon.png";
@@ -20,6 +20,7 @@ namespace snek::configs
     constexpr Color snakeColor = WHITE;
     constexpr Color appleColor = WHITE;
 
+    constexpr float appleThickness = 0.25F * tileSize;
     constexpr std::chrono::milliseconds snakeSpeed(80);
 
 } // namespace configs

@@ -47,8 +47,11 @@ namespace snek
 
     void Snake::render() const
     {
-        for (const auto &[x, y] : m_body)
-            DrawCircle(x * configs::scale, y * configs::scale, configs::scale / 2, configs::snakeColor);
+        for (const Position &part : m_body)
+        {
+            const auto [pixelX, pixelY] = ToPixelCoordinates(part);
+            DrawRectangle(pixelX, pixelY, configs::tileSize, configs::tileSize, configs::snakeColor);
+        }
     }
 
     void Snake::setDirection(const Direction nextDirection)

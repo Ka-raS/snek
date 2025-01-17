@@ -7,7 +7,7 @@
 
 namespace snek
 {
-    Apple::Apple()
+    Apple::Apple() 
         : m_position(RandomPosition()) {};
 
     Apple::~Apple() = default;
@@ -30,7 +30,14 @@ namespace snek
 
     void Apple::render() const
     {
-        DrawCircle(m_position.x * configs::scale, m_position.y * configs::scale, configs::scale / 2, configs::appleColor);
+        const auto [pixelX, pixelY] = ToPixelCoordinates(m_position);
+        const Rectangle appleRectangle{
+            .x = (float)pixelX,
+            .y = (float)pixelY,
+            .width = configs::tileSize,
+            .height = configs::tileSize
+        };
+        DrawRectangleLinesEx(appleRectangle, configs::appleThickness, configs::appleColor);
     }
 
     const Position &Apple::getPosition() const

@@ -15,21 +15,6 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
     FetchContent_MakeAvailable(raylib)
 endif()
 
-# Convert Binary files
-
-add_custom_command(
-    OUTPUT ${CMAKE_BINARY_DIR}/Icon.h
-    COMMAND xxd -i ${CMAKE_SOURCE_DIR}/resources/icon.png
-    COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_BINARY_DIR}/Icon.h
-    DEPENDS ${CMAKE_SOURCE_DIR}/resources/icon.png
-)
-add_custom_command(
-    OUTPUT ${CMAKE_BINARY_DIR}/EatingSound.h
-    COMMAND xxd -i ${CMAKE_SOURCE_DIR}/resources/eating_sound.wav
-    COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_BINARY_DIR}/EatingSound.h
-    DEPENDS ${CMAKE_SOURCE_DIR}/resources/eating_sound.wav
-)
-
 # Project
 
 add_executable(${PROJECT_NAME} WIN32
@@ -41,8 +26,3 @@ add_executable(${PROJECT_NAME} WIN32
 )
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
-
-add_dependencies(${PROJECT_NAME} 
-    ${CMAKE_BINARY_DIR}/Icon.h
-    ${CMAKE_BINARY_DIR}/EatingSound.h
-)

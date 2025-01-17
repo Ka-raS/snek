@@ -25,4 +25,6 @@ namespace snek
 
     bool isOpposite(Direction current, Direction other);
 
+    Position ToPixelCoordinates(const Position &position);
+
 } // namespace snek

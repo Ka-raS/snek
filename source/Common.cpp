@@ -9,7 +9,8 @@ namespace snek
     {
         return {
             .x = GetRandomValue(0, configs::mapWidth - 1),
-            .y = GetRandomValue(0, configs::mapHeight - 1)};
+            .y = GetRandomValue(0, configs::mapHeight - 1)
+        };
     }
 
     Position DirectionalVector(const Direction direction)
@@ -30,7 +31,7 @@ namespace snek
 
         case Direction::Right:
             return {.x = 1, .y = 0};
-
+        
         default:
             return {};
         }
@@ -41,12 +42,20 @@ namespace snek
         return this->x == other.x && this->y == other.y;
     }
 
-    bool isOpposite(const Direction current, const Direction other)
+bool isOpposite(const Direction current, const Direction other)
     {
-        return (current == Direction::Up && other == Direction::Down) ||
-               (current == Direction::Down && other == Direction::Up) ||
-               (current == Direction::Left && other == Direction::Right) ||
-               (current == Direction::Right && other == Direction::Left);
+        return (current == Direction::Up && other == Direction::Down)
+            || (current == Direction::Down && other == Direction::Up)
+            || (current == Direction::Left && other == Direction::Right)
+            || (current == Direction::Right && other == Direction::Left);
+    }
+
+    Position ToPixelCoordinates(const Position &position)
+    {
+        return {
+            .x = position.x * configs::tileSize,
+            .y = position.y * configs::tileSize
+        };
     }
 
 } // namespace utils
