@@ -6,6 +6,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/snek)
 
 # Dependency
 
+message(STATUS "Fetching raylib...")
 include(FetchContent)
 FetchContent_Declare(
 	raylib
