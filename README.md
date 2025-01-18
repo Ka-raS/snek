@@ -28,4 +28,6 @@ is snek
 
 ## Screenshot
 
-![Screenshot](resources/screenshot.png)
+<div align="center">
+  <img src="resources/screenshot.png" alt="Screenshot" />
+</div>
