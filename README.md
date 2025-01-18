@@ -25,3 +25,7 @@ is snek
     ```bash
     ./build/snek/snek
     ```
+
+## Screenshot
+
+![Screenshot](resources/screenshot.png)
