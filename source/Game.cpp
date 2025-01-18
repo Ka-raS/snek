@@ -29,7 +29,6 @@ namespace snek
     {
         while (!WindowShouldClose())
         {
-            std::cout << GetFPS() << '\n';
             update();
             render();
         }
