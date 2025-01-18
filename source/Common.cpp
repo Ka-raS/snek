@@ -13,7 +13,7 @@ namespace snek
         };
     }
 
-    Position DirectionalVector(const Direction direction)
+    Position ToDirectionalVector(const Direction direction)
     {
         switch (direction)
         {
@@ -42,7 +42,7 @@ namespace snek
         return this->x == other.x && this->y == other.y;
     }
 
-bool isOpposite(const Direction current, const Direction other)
+    bool isOpposite(const Direction current, const Direction other)
     {
         return (current == Direction::Up && other == Direction::Down)
             || (current == Direction::Down && other == Direction::Up)

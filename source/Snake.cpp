@@ -21,7 +21,7 @@ namespace snek
 
     void Snake::grow()
     {
-        const Position delta = DirectionalVector(m_direction);
+        const Position delta = ToDirectionalVector(m_direction);
         int x = m_body.front().x + delta.x;
         int y = m_body.front().y + delta.y;
 
@@ -35,7 +35,7 @@ namespace snek
         else if (y >= configs::mapHeight)
             y = 0;
 
-        m_body.emplace_front(x, y);
+        m_body.push_front({x, y});
     }
 
     void Snake::reset()

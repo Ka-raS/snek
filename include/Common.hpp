@@ -1,5 +1,7 @@
 #pragma once
 
+#include <unordered_map>
+
 namespace snek
 {
     enum class Direction
@@ -21,7 +23,7 @@ namespace snek
 
     Position RandomPosition();
 
-    Position DirectionalVector(Direction direction);
+    Position ToDirectionalVector(Direction direction);
 
     bool isOpposite(Direction current, Direction other);
 

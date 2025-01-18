@@ -7,14 +7,14 @@ namespace snek::configs
 {
     constexpr int fpsTarget = 60;
     constexpr int windowWidth = 800;
-    constexpr int windowHeight = windowWidth;
+    constexpr int windowHeight = 800;
     constexpr int mapWidth = 20;
-    constexpr int mapHeight = mapWidth;
-    constexpr int tileSize = windowWidth / mapWidth;
+    constexpr int mapHeight = 20;
+    constexpr int tileSize = 40;
 
     constexpr const char *windowTitle = "snek";
-    constexpr const char *windowIconPath = "../resources/icon.png";
-    constexpr const char *eatingSoundPath = "../resources/eating_sound.wav";
+    constexpr const char *windowIconPath = "resources/icon.png";
+    constexpr const char *eatingSoundPath = "resources/eating_sound.wav";
 
     constexpr Color backgroundColor = BLACK;
     constexpr Color snakeColor = WHITE;
