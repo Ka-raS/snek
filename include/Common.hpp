@@ -23,7 +23,7 @@ namespace snek
         int x;
         int y;
 
-        inline bool operator==(const Position &other) const { return x == other.x && y == other.y; }
+        inline bool operator==(const Position& other) const;
     };
     
     inline bool Position::operator==(const Position &other) const 
