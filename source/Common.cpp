@@ -2,6 +2,8 @@
 #include "Configs.hpp"
 
 #include "raylib.h"
+#include <array>
+#include <cstddef>
 
 namespace snek
 {
@@ -37,17 +39,12 @@ namespace snek
         }
     }
 
-    bool Position::operator==(const Position &other) const
+    bool isOppositeDirection(Direction current, Direction other)
     {
-        return this->x == other.x && this->y == other.y;
-    }
-
-    bool isOpposite(const Direction current, const Direction other)
-    {
-        return (current == Direction::Up && other == Direction::Down)
-            || (current == Direction::Down && other == Direction::Up)
-            || (current == Direction::Left && other == Direction::Right)
-            || (current == Direction::Right && other == Direction::Left);
+        constexpr static std::array<Direction, 5> oppositeDirections = {
+            Direction::None, Direction::Down, Direction::Up, Direction::Right, Direction::Left
+        };
+        return other == oppositeDirections[static_cast<size_t>(current)];
     }
 
     Position ToPixelCoordinates(const Position &position)

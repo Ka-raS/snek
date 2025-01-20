@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Common.hpp"
-
 #include <deque>
 
 namespace snek
@@ -9,20 +8,17 @@ namespace snek
     class Snake
     {
     public:
-        Snake();
-        ~Snake();
+        Snake() = default;
+        ~Snake() = default;
 
-        void move();
-        void grow();
         void reset();
         void render() const;
+        void growFront();
+        inline void shrinkBack() { m_body.pop_back(); }
         void setDirection(Direction nextDirection);
 
-        bool isSelfCollision() const;
-        bool isCollisionWith(const Position &target) const;
-        bool isValidDirection(Direction nextDirection) const;
-
-        const std::deque<Position> &getPosition() const;
+        Collision checkCollision(const Position &apple) const;
+        inline const std::deque<Position> &getPosition() const { return m_body; }
 
     private:
         Direction m_direction;

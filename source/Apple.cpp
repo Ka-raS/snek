@@ -4,28 +4,16 @@
 
 #include "raylib.h"
 #include <deque>
+#include <algorithm>
 
 namespace snek
 {
-    Apple::Apple() 
-        : m_position(RandomPosition()) {};
-
-    Apple::~Apple() = default;
-
     void Apple::reset(const std::deque<Position> &snakeBody)
     {
-        bool isValid = false;
-        while (!isValid)
+        do
         {
-            isValid = true;
             m_position = RandomPosition();
-            for (const Position &part : snakeBody)
-                if (m_position == part)
-                {
-                    isValid = false;
-                    break;
-                }
-        }
+        } while (std::find(snakeBody.begin(), snakeBody.end(), m_position) != snakeBody.end());
     }
 
     void Apple::render() const
@@ -34,15 +22,10 @@ namespace snek
         const Rectangle appleRectangle{
             .x = (float)pixelX,
             .y = (float)pixelY,
-            .width = configs::tileSize,
-            .height = configs::tileSize
+            .width = (float)configs::tileSize,
+            .height = (float)configs::tileSize
         };
         DrawRectangleLinesEx(appleRectangle, configs::appleThickness, configs::appleColor);
-    }
-
-    const Position &Apple::getPosition() const
-    {
-        return m_position;
     }
 
 } // namespace snek

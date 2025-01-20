@@ -5,6 +5,7 @@
 #include "Common.hpp"
 
 #include "raylib.h"
+#include <chrono>
 
 namespace snek
 {
@@ -18,18 +19,22 @@ namespace snek
     private:
         void update();
         void render() const;
+        void startNewGame();
 
         void handleInput();
         void handleCollision();
-        static bool hasEnoughTimePassed();
+        bool hasEnoughTimePassed();
 
     private:
-        Image m_windowIcon;
-        Sound m_eatingSound;
+        bool m_isRunning;
+        std::chrono::time_point<std::chrono::steady_clock> m_lastUpdate;
 
         Snake m_snake;
         Apple m_apple;
-        Direction m_nextSnakeDirection;
+        Direction m_snakeNextDirection;
+
+        Image m_windowIcon;
+        Sound m_eatingSound;
     };
 
 } // namespace snek

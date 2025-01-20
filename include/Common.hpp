@@ -1,9 +1,14 @@
 #pragma once
 
-#include <unordered_map>
-
 namespace snek
 {
+    enum class Collision
+    {
+        None,
+        Apple,
+        Snake
+    };
+
     enum class Direction
     {
         None,
@@ -18,14 +23,14 @@ namespace snek
         int x;
         int y;
 
-        bool operator==(const Position &other) const;
+        inline bool operator==(const Position &other) const { return x == other.x && y == other.y; }
     };
 
     Position RandomPosition();
 
     Position ToDirectionalVector(Direction direction);
 
-    bool isOpposite(Direction current, Direction other);
+    bool isOppositeDirection(Direction current, Direction other);
 
     Position ToPixelCoordinates(const Position &position);
 

@@ -7,19 +7,23 @@
 
 namespace snek
 {
-    Snake::Snake()
-        : m_direction(Direction::None),
-          m_body(1, RandomPosition()) {};
-
-    Snake::~Snake() = default;
-
-    void Snake::move()
+    void Snake::reset()
     {
-        grow();
-        m_body.pop_back();
+        m_direction = Direction::None;
+        m_body.resize(1);
+        m_body.front() = RandomPosition();
     }
 
-    void Snake::grow()
+    void Snake::render() const
+    {
+        for (const Position &bodyPart : m_body)
+        {
+            const auto [pixelX, pixelY] = ToPixelCoordinates(bodyPart);
+            DrawRectangle(pixelX, pixelY, configs::tileSize, configs::tileSize, configs::snakeColor);
+        }
+    }
+
+    void Snake::growFront()
     {
         const Position delta = ToDirectionalVector(m_direction);
         int x = m_body.front().x + delta.x;
@@ -38,49 +42,22 @@ namespace snek
         m_body.push_front({x, y});
     }
 
-    void Snake::reset()
-    {
-        m_direction = Direction::None;
-        m_body.clear();
-        m_body.push_front(RandomPosition());
-    }
-
-    void Snake::render() const
-    {
-        for (const Position &part : m_body)
-        {
-            const auto [pixelX, pixelY] = ToPixelCoordinates(part);
-            DrawRectangle(pixelX, pixelY, configs::tileSize, configs::tileSize, configs::snakeColor);
-        }
-    }
-
     void Snake::setDirection(const Direction nextDirection)
     {
-        m_direction = nextDirection;
+        if (!isOppositeDirection(m_direction, nextDirection))
+            m_direction = nextDirection;
     }
 
-    bool Snake::isSelfCollision() const
+    Collision Snake::checkCollision(const Position &apple) const
     {
-        const Position &head = m_body.front();
-        for (size_t i = 1; i < m_body.size(); ++i)
-            if (head == m_body[i])
-                return true;
-        return false;
+        if (m_body.front() == apple)
+            return Collision::Apple;
+        
+        for (size_t i = 4; i < m_body.size(); ++i)
+            if (m_body.front() == m_body[i])
+                return Collision::Snake;
+        
+        return Collision::None;
     }
-
-    bool Snake::isCollisionWith(const Position &target) const
-    {
-        return m_body.front() == target;
-    }
-
-    bool Snake::isValidDirection(const Direction nextDirection) const
-    {
-        return nextDirection != Direction::None && !isOpposite(m_direction, nextDirection);
-    }
-
-    const std::deque<Position> &Snake::getPosition() const
-    {
-        return m_body;
-    }
-
+    
 } // namespace snek

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Common.hpp"
-
 #include <deque>
 
 namespace snek
@@ -9,12 +8,12 @@ namespace snek
     class Apple
     {
     public:
-        Apple();
-        ~Apple();
+        Apple() = default;
+        ~Apple() = default;
 
         void reset(const std::deque<Position> &snakeBody);
         void render() const;
-        const Position &getPosition() const;
+        inline const Position &getPosition() const { return m_position; }
 
     private:
         Position m_position;
