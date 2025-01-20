@@ -13,10 +13,15 @@ namespace snek
 
         void reset(const std::deque<Position> &snakeBody);
         void render() const;
-        inline const Position &getPosition() const { return m_position; }
+        inline const Position &getPosition() const;
 
     private:
         Position m_position;
     };
+    
+    inline const Position &Apple::getPosition() const 
+    { 
+        return m_position;
+    }
 
 } // namespace snek

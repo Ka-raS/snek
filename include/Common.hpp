@@ -25,6 +25,11 @@ namespace snek
 
         inline bool operator==(const Position &other) const { return x == other.x && y == other.y; }
     };
+    
+    inline bool Position::operator==(const Position &other) const 
+    {
+        return this->x == other.x && this->y == other.y;
+    }
 
     Position RandomPosition();
 
