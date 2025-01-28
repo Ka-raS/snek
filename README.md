@@ -5,7 +5,7 @@ is snek
 ## Prerequisites
 
 - [**CMake**](https://cmake.org/download/) (version 3.11 or higher) - building tool
-- [**raylib**](https://github.com/raysan5/raylib) (auto fetched by CMake) - library
+- [**raylib**](https://github.com/raysan5/raylib) (version 5.5) - library (auto fetched using CMake)
 - **C++20** (or higher)
 
 ## Installation
