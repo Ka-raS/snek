@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.11)
-project(snek VERSION 1.0.0)
+project(snek VERSION 1.0.1)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/snek)
 
 # Dependency
 
-message(STATUS "Fetching raylib...")
+set(FETCHCONTENT_QUIET OFF)
 include(FetchContent)
 FetchContent_Declare(
 	raylib
     GIT_REPOSITORY https://github.com/raysan5/raylib.git
-    GIT_TAG        master
+    GIT_TAG        5.5
 )
 FetchContent_MakeAvailable(raylib)
 

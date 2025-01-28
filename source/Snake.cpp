@@ -53,7 +53,7 @@ namespace snek
         if (m_body.front() == apple)
             return Collision::Apple;
         
-        for (size_t i = 4; i < m_body.size(); ++i)
+        for (size_t i = 4; i < m_body.size() - 1; ++i)
             if (m_body.front() == m_body[i])
                 return Collision::Snake;
         
