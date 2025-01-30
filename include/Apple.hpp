@@ -13,7 +13,7 @@ namespace snek
 
         void reset(const std::deque<Position> &snakeBody);
         void render() const;
-        inline const Position &getPosition() const;
+        onst Position &getPosition() const;
 
     private:
         Position m_position;
