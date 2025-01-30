@@ -14,11 +14,11 @@ namespace snek
         void reset();
         void render() const;
         void growFront();
-        inline void shrinkBack();
+        void shrinkBack();
         void setDirection(Direction nextDirection);
 
         Collision checkCollision(const Position &apple) const;
-        inline const std::deque<Position> &getPosition() const;
+        const std::deque<Position> &getPosition() const;
 
     private:
         Direction m_direction;
