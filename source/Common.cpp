@@ -39,11 +39,11 @@ namespace snek
         }
     }
 
+    constexpr static std::array<Direction, 5> oppositeDirections = {
+        Direction::None, Direction::Down, Direction::Up, Direction::Right, Direction::Left
+    };
     bool isOppositeDirection(Direction current, Direction other)
     {
-        constexpr static std::array<Direction, 5> oppositeDirections = {
-            Direction::None, Direction::Down, Direction::Up, Direction::Right, Direction::Left
-        };
         return other == oppositeDirections[static_cast<size_t>(current)];
     }
 
