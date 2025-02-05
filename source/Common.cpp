@@ -7,6 +7,10 @@
 
 namespace snek
 {
+    static constexpr std::array<Direction, 5> s_oppositeDirections = {
+        Direction::None, Direction::Down, Direction::Up, Direction::Right, Direction::Left
+    };   
+
     Position RandomPosition()
     {
         return {
@@ -39,15 +43,9 @@ namespace snek
         }
     }
 
-    namespace 
-    {
-        static constexpr std::array<Direction, 5> oppositeDirections = {
-            Direction::None, Direction::Down, Direction::Up, Direction::Right, Direction::Left
-        };   
-    }
     constexpr bool isOppositeDirection(Direction current, Direction other)
     {
-        return other == oppositeDirections[static_cast<size_t>(current)];
+        return other == s_oppositeDirections[static_cast<size_t>(current)];
     }
 
     Position ToPixelCoordinates(const Position &position)
