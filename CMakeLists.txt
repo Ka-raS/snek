@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/snek)
 set(FETCHCONTENT_QUIET OFF)
 include(FetchContent)
 FetchContent_Declare(
-	raylib
+    raylib
     GIT_REPOSITORY https://github.com/raysan5/raylib.git
     GIT_TAG        5.5
 )
