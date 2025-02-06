@@ -12,9 +12,9 @@ namespace snek::configs
     constexpr int mapHeight = 20;
     constexpr int tileSize = 40;
 
-    constexpr inline const char *windowTitle = "snek";
-    constexpr inline const char *windowIconPath = "resources/icon.png";
-    constexpr inline const char *eatingSoundPath = "resources/eating_sound.wav";
+    constexpr inline char windowTitle[] = "snek";
+    constexpr inline char windowIconPath[] = "resources/icon.png";
+    constexpr inline char eatingSoundPath[] = "resources/eating_sound.wav";
 
     constexpr inline Color backgroundColor = BLACK;
     constexpr inline Color snakeColor = WHITE;

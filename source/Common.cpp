@@ -19,7 +19,7 @@ namespace snek
         };
     }
 
-    Position ToDirectionalVector(const Direction direction)
+    constexpr Position ToDirectionalVector(const Direction direction)
     {
         switch (direction)
         {
