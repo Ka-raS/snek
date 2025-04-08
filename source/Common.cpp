@@ -19,7 +19,7 @@ namespace snek
         };
     }
 
-    constexpr Position ToDirectionalVector(const Direction direction)
+    Position ToDirectionalVector(const Direction direction)
     {
         switch (direction)
         {
@@ -43,7 +43,7 @@ namespace snek
         }
     }
 
-    constexpr bool isOppositeDirection(Direction current, Direction other)
+    bool isOppositeDirection(Direction current, Direction other)
     {
         return other == s_oppositeDirections[static_cast<size_t>(current)];
     }
