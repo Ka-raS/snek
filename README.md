@@ -13,6 +13,7 @@ is snek
 1. Clone:
     ```bash
     git clone https://github.com/Ka-raS/snek.git
+    cd snek
     ```
 
 2. Build:
