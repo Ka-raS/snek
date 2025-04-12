@@ -23,8 +23,13 @@ is snek
     ```
 
 3. Run:
+   Linux/MacOS
     ```bash
     ./build/snek/snek
+    ```
+   Window
+    ```bash
+    .\build\snek\snek
     ```
 
 ## Screenshot
