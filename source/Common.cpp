@@ -56,4 +56,4 @@ namespace snek
         };
     }
 
-} // namespace utils
+}
