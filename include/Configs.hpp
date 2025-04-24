@@ -23,4 +23,4 @@ namespace snek::configs
     constexpr float appleThickness = 0.25F * tileSize;
     constexpr float snakeSpeed = 8.0F; // tiles per second
 
-} // namespace configs
+} // namespace snek::configs
